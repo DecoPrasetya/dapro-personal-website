@@ -16,9 +16,17 @@ export default function SectionHeading({
       transition={{ duration: 0.6 }}
       className="mb-16"
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-white">{title}</h2>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">{title}</h2>
       {subtitle && (
-        <p className="text-gray-400 mt-3 max-w-2xl">{subtitle}</p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-gray-600 dark:text-gray-400 mt-3 max-w-2xl"
+        >
+          {subtitle}
+        </motion.p>
       )}
     </motion.div>
   );

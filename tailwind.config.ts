@@ -5,6 +5,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -12,14 +13,27 @@ const config: Config = {
         display: ['Clash Display', 'Inter', 'sans-serif'],
       },
       colors: {
-        'primary': '#0a0a0a',
-        'accent': '#6366f1',    // indigo-500
-        'muted': '#737373',
+        primary: {
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+          950: '#172554',
+        },
+        accent: '#6366f1',
+        muted: '#737373',
       },
       animation: {
         'gradient': 'gradient 8s ease infinite',
         'float': 'float 6s ease-in-out infinite',
         'fade-in-up': 'fadeInUp 0.8s ease-out',
+        'slow-gradient': 'slowGradient 15s ease infinite',
       },
       keyframes: {
         gradient: {
@@ -33,6 +47,10 @@ const config: Config = {
         fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY(40px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slowGradient: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         },
       },
     },

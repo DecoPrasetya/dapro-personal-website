@@ -10,12 +10,12 @@ export default function JourneyTimeline() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-white"
+          className="text-4xl md:text-5xl font-bold mb-16 text-gray-900 dark:text-white"
         >
           The Journey
         </motion.h2>
 
-        <div className="relative border-l border-white/10 pl-8 space-y-16">
+        <div className="relative border-l border-gray-200 dark:border-white/10 pl-8 space-y-16">
           {personalData.journey.map((step, i) => (
             <motion.div
               key={i}
@@ -25,12 +25,12 @@ export default function JourneyTimeline() {
               transition={{ delay: i * 0.2 }}
               className="relative"
             >
-              <span className="absolute -left-[41px] w-8 h-8 bg-violet-600 rounded-full flex items-center justify-center text-sm text-white shadow-lg shadow-violet-600/30">
+              <span className="absolute -left-[41px] w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm text-white shadow-lg shadow-blue-600/30">
                 {i + 1}
               </span>
-              <h3 className="text-xl font-bold text-white mb-1">{step.label}</h3>
-              <p className="text-sm text-violet-400 mb-3">{step.period}</p>
-              <p className="text-gray-300 leading-relaxed">{step.text}</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{step.label}</h3>
+              <p className="text-sm text-blue-600 dark:text-blue-400 mb-3">{step.period}</p>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{step.text}</p>
             </motion.div>
           ))}
         </div>

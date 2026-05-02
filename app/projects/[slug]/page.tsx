@@ -26,7 +26,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
     <article className="pt-36 pb-32 px-6 max-w-4xl mx-auto min-h-screen">
       <div className="mb-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">{project.title}</h1>
-        <p className="text-gray-400 text-lg mb-8">{project.description}</p>
+        <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">{project.description}</p>
         {project.technologies?.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-6">
             {project.technologies.map((tech: string) => (

@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }: Props) {
       className="group relative"
     >
       <Link href={`/projects/${project.slug}`}>
-        <div className="glass overflow-hidden rounded-3xl transition-all duration-500 group-hover:bg-white/10 group-hover:shadow-2xl group-hover:shadow-violet-500/10">
+        <div className="glass overflow-hidden rounded-3xl transition-all duration-500 group-hover:bg-white/50 dark:group-hover:bg-white/10 group-hover:shadow-2xl group-hover:shadow-blue-500/10">
           <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative">
             {project.imageUrl ? (
               <img
@@ -38,13 +38,13 @@ export default function ProjectCard({ project, index }: Props) {
             </div>
           </div>
           <div className="p-6">
-            <p className="text-gray-400 line-clamp-2">{project.description}</p>
+            <p className="text-gray-600 dark:text-gray-400 line-clamp-2">{project.description}</p>
             {project.technologies?.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.technologies.slice(0, 4).map((tech: any) => (
                   <span
                     key={tech}
-                    className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300"
+                    className="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300"
                   >
                     {tech}
                   </span>

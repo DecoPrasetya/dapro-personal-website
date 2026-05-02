@@ -4,13 +4,13 @@ import { personalData } from "@/lib/personalData";
 
 export default function AboutSection() {
   return (
-    <section className="py-32 px-6 border-t border-white/5">
+    <section className="py-32 px-6 border-t border-gray-200 dark:border-white/5">
       <div className="max-w-4xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-6 text-white"
+          className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white"
         >
           Tentang Saya
         </motion.h2>
@@ -18,7 +18,7 @@ export default function AboutSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-gray-400 text-lg mb-16"
+          className="text-gray-600 dark:text-gray-400 text-lg mb-16"
         >
           {personalData.nickname} – {personalData.birthPlace},{" "}
           {personalData.birthDate}
@@ -32,7 +32,7 @@ export default function AboutSection() {
           transition={{ delay: 0.2 }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-semibold text-violet-400 mb-6">
+          <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-6">
             🎓 Pendidikan
           </h3>
           <ul className="space-y-3">
@@ -43,9 +43,9 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.1 }}
-                className="flex items-center gap-3 text-gray-300 bg-white/5 border border-white/10 rounded-xl p-4"
+                className="flex items-center gap-3 text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl p-4"
               >
-                <span className="w-8 h-8 flex items-center justify-center rounded-full bg-violet-500/20 text-violet-400 text-sm">
+                <span className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400 text-sm">
                   {i + 1}
                 </span>
                 {school}
@@ -61,7 +61,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          <h3 className="text-2xl font-semibold text-indigo-400 mb-8">
+          <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-8">
             💼 Pengalaman
           </h3>
           <div className="space-y-6">
@@ -74,16 +74,16 @@ export default function AboutSection() {
                 transition={{ delay: 0.5 + i * 0.15 }}
                 className="glass p-6 rounded-2xl"
               >
-                <h4 className="text-lg font-semibold text-white mb-4">
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   {exp.period}
                 </h4>
                 <ul className="space-y-2">
                   {exp.items.map((item:any, j:any) => (
                     <li
                       key={j}
-                      className="text-gray-300 flex items-start gap-3"
+                      className="text-gray-600 dark:text-gray-300 flex items-start gap-3"
                     >
-                      <span className="text-indigo-400 mt-1">▹</span>
+                      <span className="text-blue-600 dark:text-blue-400 mt-1">▹</span>
                       {item}
                     </li>
                   ))}

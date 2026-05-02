@@ -24,7 +24,7 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-black to-black animate-gradient bg-[length:400%_400%]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent dark:from-blue-900/20 dark:via-transparent dark:to-transparent animate-gradient bg-[length:400%_400%]" />
       
       <motion.div
         initial={{ opacity: 0, y: 60 }}
@@ -42,7 +42,7 @@ export default function Hero() {
             <img
               src={settings.avatar_url}
               alt="Avatar"
-              className="w-24 h-24 rounded-full object-cover border-2 border-white/20 shadow-2xl mx-auto"
+              className="w-24 h-24 rounded-full object-cover border-2 border-gray-200 dark:border-white/20 shadow-xl dark:shadow-2xl mx-auto"
             />
           </motion.div>
         )}
@@ -60,7 +60,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="text-lg md:text-xl text-gray-400 max-w-lg mx-auto mb-10"
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-lg mx-auto mb-10"
         >
           {personalData.hero.subheadline}
         </motion.p>
@@ -73,7 +73,7 @@ export default function Hero() {
         >
           <Link
             href={personalData.hero.cta.href}
-            className="px-8 py-3 rounded-full bg-violet-600 hover:bg-violet-500 text-white font-medium transition"
+            className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium transition"
           >
             {personalData.hero.cta.label}
           </Link>
@@ -83,7 +83,7 @@ export default function Hero() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 glass text-gray-300 hover:text-white transition"
+              className="p-3 glass text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
             >
               <social.icon size={20} />
             </a>
