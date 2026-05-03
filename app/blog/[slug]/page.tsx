@@ -11,10 +11,11 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   let post;
   try {
-    post = await getBlogPostBySlug(params.slug);
+    post = await getBlogPostBySlug(slug);
   } catch {
     return <ErrorMessage message="Artikel tidak dapat dimuat." />;
   }

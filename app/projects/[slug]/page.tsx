@@ -12,10 +12,11 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   let project;
   try {
-    project = await getProjectBySlug(params.slug);
+    project = await getProjectBySlug(slug);
   } catch (e) {
     return <ErrorMessage message="Project tidak dapat dimuat." />;
   }
