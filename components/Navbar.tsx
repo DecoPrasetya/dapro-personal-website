@@ -9,11 +9,11 @@ import { ThemeToggle } from "./ThemeToggle";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [siteTitle, setSiteTitle] = useState("decoprasetya.id");
+  const [siteTitle, setSiteTitle] = useState("Deco Prasetya");
 
   useEffect(() => {
     getPublicSettings()
-      .then((s) => setSiteTitle(s.site_title || "decoprasetya.id"))
+      .then((s) => setSiteTitle(s.site_title || "Deco Prasetya"))
       .catch(() => {});
   }, []);
 

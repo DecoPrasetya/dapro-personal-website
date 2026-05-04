@@ -38,7 +38,6 @@ export const personalData = {
           desc: "Divisi yang bergerak di ranah pendidikan, menjadi wadah inovasi untuk menciptakan alat bantu ajar dan platform edukasi yang efektif.",
         },
       ],
-      role: "Saya bertanggung jawab dalam mengorkestrasi visi teknologi digital perusahaan.",
     },
     {
       title: "Tirtanexa",

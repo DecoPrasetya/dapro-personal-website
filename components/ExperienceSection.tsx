@@ -44,11 +44,11 @@ export default function ExperienceSection() {
                 ))}
               </div>
             )}
-            {exp.role && (
+            {/* {exp.role && (
               <p className="mt-4 text-blue-600 dark:text-blue-300 text-sm italic">
                 🧭 {exp.role}
               </p>
-            )}
+            )} */}
           </motion.div>
         ))}
       </div>
