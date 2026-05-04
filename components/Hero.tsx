@@ -8,6 +8,7 @@ import { FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 
 export default function Hero() {
   const [settings, setSettings] = useState<any>({});
+  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
     getPublicSettings()
@@ -32,20 +33,23 @@ export default function Hero() {
         transition={{ duration: 0.9, ease: "easeOut" }}
         className="max-w-3xl text-center relative z-10"
       >
-        {settings.avatar_url && (
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mb-10 inline-block"
-          >
-            <img
-              src={settings.avatar_url}
-              alt="Avatar"
-              className="w-24 h-24 rounded-full object-cover border-2 border-gray-200 dark:border-white/20 shadow-xl dark:shadow-2xl mx-auto"
-            />
-          </motion.div>
-        )}
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+          className="mb-10 inline-block perspective-[1000px]"
+        >
+          <motion.img
+            src={settings.avatar_url || "/photo-profile/image-profile-1.jpeg"}
+            alt="Avatar"
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-gray-200 dark:border-white/10 shadow-xl dark:shadow-2xl mx-auto cursor-pointer"
+            animate={{ rotateY: rotation }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ rotateY: { duration: 0.6, ease: "easeInOut" } }}
+            onClick={() => setRotation(rotation + 360)}
+          />
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 40 }}

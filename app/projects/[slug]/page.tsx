@@ -31,7 +31,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         {project.technologies?.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-6">
             {project.technologies.map((tech: string) => (
-              <span key={tech} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">
+              <span key={tech} className="px-4 py-1.5 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-sm text-gray-800 dark:text-gray-200">
                 {tech}
               </span>
             ))}
@@ -43,7 +43,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-black hover:bg-gray-200 transition"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gray-900 dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition"
             >
               <FiGithub /> Source Code
             </a>
@@ -53,7 +53,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/20 hover:bg-white/10 transition"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-gray-300 dark:border-white/20 hover:bg-gray-100 dark:hover:bg-white/10 text-gray-900 dark:text-white transition"
             >
               <FiExternalLink /> Live Demo
             </a>
@@ -65,12 +65,12 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         <img
           src={project.imageUrl}
           alt={project.title}
-          className="w-full rounded-3xl mb-12 border border-white/5"
+          className="w-full rounded-3xl mb-12 border border-gray-200 dark:border-white/5"
         />
       )}
 
       <div
-        className="prose prose-invert prose-lg max-w-none"
+        className="prose dark:prose-invert prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: project.content?.replace(/&nbsp;/g, ' ') }}
       />
     </article>

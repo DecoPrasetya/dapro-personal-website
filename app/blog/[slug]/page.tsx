@@ -35,17 +35,17 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       <time className="text-gray-500 text-sm">{date}</time>
       <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">{post.title}</h1>
       {post.excerpt && (
-        <p className="text-xl text-gray-400 mb-10">{post.excerpt}</p>
+        <p className="text-xl text-gray-600 dark:text-gray-400 mb-10">{post.excerpt}</p>
       )}
       {post.contentImage && (
         <img
           src={post.contentImage}
           alt={post.title}
-          className="w-full rounded-3xl mb-10 border border-white/5"
+          className="w-full rounded-3xl mb-10 border border-gray-200 dark:border-white/5"
         />
       )}
       <div
-        className="prose prose-invert prose-lg max-w-none"
+        className="prose dark:prose-invert prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content?.replace(/&nbsp;/g, ' ') }}
       />
     </article>
