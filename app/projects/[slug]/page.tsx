@@ -71,7 +71,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
       <div
         className="prose prose-invert prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: project.content }}
+        dangerouslySetInnerHTML={{ __html: project.content?.replace(/&nbsp;/g, ' ') }}
       />
     </article>
   );

@@ -46,7 +46,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       )}
       <div
         className="prose prose-invert prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: post.content?.replace(/&nbsp;/g, ' ') }}
       />
     </article>
   );
