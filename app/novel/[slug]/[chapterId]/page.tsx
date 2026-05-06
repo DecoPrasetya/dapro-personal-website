@@ -71,9 +71,8 @@ export default async function ChapterReadingPage({
 
       {/* Reading Content */}
       <main className="max-w-3xl mx-auto px-6 py-12 md:py-20">
-        {/* <h1 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100 font-sans leading-tight">
-          {chapter.title}
-        </h1> */}
+        <div className="mb-12">
+        </div>
         
         <article 
           className="prose prose-lg dark:prose-invert max-w-none 
