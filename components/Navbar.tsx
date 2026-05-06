@@ -29,11 +29,13 @@ export default function Navbar() {
     { href: "/journey", label: "Journey" },
     { href: "/projects", label: "Projects" },
     { href: "/blog", label: "Blog" },
+    { href: "/novel", label: "Novel" },
     { href: "/about", label: "About" },
   ];
 
   return (
     <nav
+      id="main-navbar"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-white/70 dark:bg-black/60 backdrop-blur-xl border-b border-gray-200 dark:border-white/5 shadow-sm dark:shadow-none" : "bg-transparent"
       }`}

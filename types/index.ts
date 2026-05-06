@@ -38,6 +38,33 @@ export interface Project {
   updatedAt: string;
 }
 
+export interface Novel {
+  id: string;
+  title: string;
+  slug: string;
+  author: string;
+  synopsis: string;
+  coverImage: string | null;
+  isCompleted: boolean;
+  isPublished: boolean;
+  tags: string[];
+  totalChapter: number;
+  likes: number;
+  createdAt: string;
+  updatedAt: string;
+  novelChapters?: NovelChapter[];
+}
+
+export interface NovelChapter {
+  id: string;
+  novelId: string;
+  title: string;
+  content: string;
+  isPublished: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Pagination {
   page: number;
   limit: number;
@@ -49,5 +76,7 @@ export interface PaginatedResponse<T> {
   post?: BlogPost[];      // blog service uses "post"
   posts?: BlogPost[];     // fallback
   projects?: Project[];
+  novels?: Novel[];
+  novelChapters?: NovelChapter[];
   pagination: Pagination;
 }

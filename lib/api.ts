@@ -57,3 +57,67 @@ export async function getProjectBySlug(slug: string): Promise<Project> {
   );
   return data;
 }
+
+// ---------- NOVEL ----------
+export async function getNovels(page = 1, limit = 9, query = "") {
+  const params = new URLSearchParams({ page: String(page), limit: String(limit) });
+  if (query) params.append("query", query);
+  
+  const { data } = await fetchAPI<{ success: boolean; data: any }>(
+    `/novel?${params.toString()}`
+  );
+  return data;
+}
+
+export async function getNovelBySlug(slug: string): Promise<any> {
+  const { data } = await fetchAPI<{ success: boolean; data: any }>(
+    `/novel/${slug}`
+  );
+  return data;
+}
+
+export async function getNovelChapters(novelId: string, page = 1, limit = 50) {
+  const params = new URLSearchParams({ page: String(page), limit: String(limit) });
+  const { data } = await fetchAPI<{ success: boolean; data: any }>(
+    `/novel/${novelId}/chapters?${params.toString()}`
+  );
+  return data;
+}
+
+export async function getNovelTotalChapters(novelId: string): Promise<number> {
+  const { data } = await fetchAPI<{ success: boolean; data: number }>(
+    `/novel/${novelId}/chapters/total`
+  );
+  return data;
+}
+
+export async function getNovelChapterById(novelId: string, chapterId: string): Promise<any> {
+  const { data } = await fetchAPI<{ success: boolean; data: any }>(
+    `/novel/${novelId}/chapters/${chapterId}`
+  );
+  return data;
+}
+
+// ---------- NOVEL LIKES ----------
+export async function getNovelTotalLikes(novelId: string): Promise<number> {
+  const { data } = await fetchAPI<{ success: boolean; data: number }>(
+    `/novel/${novelId}/likes/total`
+  );
+  return data;
+}
+
+export async function likeNovel(novelId: string, identifier: string): Promise<void> {
+  const res = await fetch(`${API_BASE}/novel/${novelId}/likes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ identifier }),
+  });
+  if (!res.ok) throw new Error("Gagal menyukai novel");
+}
+
+export async function unlikeNovel(novelId: string, identifier: string): Promise<void> {
+  const res = await fetch(`${API_BASE}/novel/${novelId}/likes/${identifier}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error("Gagal membatalkan suka");
+}
