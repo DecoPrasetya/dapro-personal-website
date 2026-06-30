@@ -121,3 +121,11 @@ export async function unlikeNovel(novelId: string, identifier: string): Promise<
   });
   if (!res.ok) throw new Error("Gagal membatalkan suka");
 }
+
+// ---------- FLOG ----------
+export async function getFlogs(page = 1, limit = 10) {
+  const { data } = await fetchAPI<{ success: boolean; data: any }>(
+    `/flog?page=${page}&limit=${limit}`
+  );
+  return data;
+}
